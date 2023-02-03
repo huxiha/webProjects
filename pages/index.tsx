@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { GetServerSideProps, GetServerSidePropsContext, GetStaticProps, GetStaticPropsContext, NextPage } from 'next';
 
 
-const About: NextPage<{endpoint:string}> = ({endpoint}) => {
-  console.log(endpoint);
+const About = () => {
+  
   return ( 
     <motion.div variants={routeAnimation} initial="initial" animate="animate" exit="exit" className='flex flex-col flex-grow px-6 pt-1'>
       <h6 className='my-3 font-medium'>
@@ -34,15 +34,15 @@ const About: NextPage<{endpoint:string}> = ({endpoint}) => {
  
 export default About
 
-export const getServerSideProps: GetServerSideProps =  async (context:GetServerSidePropsContext) => {
-  const res = await fetch(`${process.env.VERCEL_URL}/api/services`);
-  const data = await res.json();
-  return {
-    props:{
-      endpoint: process.env.VERCEL_URL,
-    }
-  }
-} 
+// export const getServerSideProps: GetServerSideProps =  async (context:GetServerSidePropsContext) => {
+//   const res = await fetch(`${process.env.VERCEL_URL}/api/services`);
+//   const data = await res.json();
+//   return {
+//     props:{
+//       endpoint: process.env.VERCEL_URL,
+//     }
+//   }
+// } 
 
 // export const getStaticProps: GetStaticProps =  async (context:GetStaticPropsContext) => {
 //   const res = await fetch('http://localhost:3000/api/services');
